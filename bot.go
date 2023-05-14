@@ -20,6 +20,8 @@ var (
 	backButton     = "Back"
 	tutorialButton = "Tutorial"
 
+	telegramBotToken = os.Getenv("TELEGRAM_BOT_TOKEN")
+
 	// Store bot screaming status
 	screaming = false
 	bot       *tgbotapi.BotAPI
@@ -44,7 +46,7 @@ var (
 
 func main() {
 	var err error
-	bot, err = tgbotapi.NewBotAPI("<YOUR_BOT_TOKEN_HERE>")
+	bot, err = tgbotapi.NewBotAPI(telegramBotToken)
 	if err != nil {
 		// Abort if something is wrong
 		log.Panic(err)
